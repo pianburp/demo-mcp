@@ -1,6 +1,9 @@
-import Anthropic from "@anthropic-ai/sdk";
-import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { GoogleGenAI } from "@google/genai";
+import { z } from "zod";
 import { OrderSchema } from "./order-schema";
+
+// Asks Gemini for this shape; read-order.ts still checks the result with zod (S2).
+const ORDER_JSON_SCHEMA = z.toJSONSchema(OrderSchema);
 
 export type ModelInput = { system: string; message: string };
 
@@ -21,26 +24,24 @@ export class FakeModel implements Model {
   }
 }
 
-// Calls Claude. Costs money (S6). Key comes from ANTHROPIC_API_KEY.
+// Calls Gemini. Costs money (S6). Key comes from GEMINI_API_KEY.
 export class RealModel implements Model {
-  private client = new Anthropic();
+  private client = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-  constructor(private model = "claude-opus-5-5") {}
+  constructor(private model = "gemini-3.8-flash") {}
 
   async complete({ system, message }: ModelInput): Promise<string> {
-    const response = await this.client.beta.messages.create({
+    const response = await this.client.models.generateContent({
       model: this.model,
-      max_tokens: 4000,
-      system,
-      messages: [{ role: "user", content: message }],
-      output_config: { effort: "low", format: betaZodOutputFormat(OrderSchema) },
-      // On a safety decline, the API retries on a fallback model inside the same call.
-      betas: ["server-side-fallback-2026-07-01"],
-      fallbacks: "default",
+      contents: message,
+      config: {
+        systemInstruction: system,
+        responseMimeType: "application/json",
+        responseJsonSchema: ORDER_JSON_SCHEMA,
+      },
     });
-    if (response.stop_reason !== "end_turn") {
-      throw new Error(`Model stopped with ${response.stop_reason}`);
-    }
-    return response.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
+    const finish = response.candidates?.[0]?.finishReason;
+    if (finish !== "STOP") throw new Error(`Model stopped with ${finish}`);
+    return response.text ?? "";
   }
 }

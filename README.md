@@ -9,7 +9,7 @@ A customer types an order in a fake WhatsApp chat. The AI reads it. A row appear
 | Part | Real or fake |
 | :- | :- |
 | Order reader (`src/core/`, `prompts/read-order.md`) | **Real.** Moves to the real system as is. |
-| AI model | `FakeModel` by default (fixed answers, free). `RealModel` calls Claude and costs money. |
+| AI model | `FakeModel` by default (fixed answers, free). `RealModel` calls Gemini (`gemini-3.8-flash`) and costs money. |
 | Chat (`/chat`) | Fake. Looks like WhatsApp; no WhatsApp connection. |
 | Store | Fake. One JSON file in `data/` (git-ignored). The real system uses PostgreSQL. |
 | Customers and messages | Fake. No real names, phone numbers or chats. |
@@ -22,7 +22,7 @@ A customer types an order in a fake WhatsApp chat. The AI reads it. A row appear
 npm install
 npm run seed        # replaces data/orders.json with 5 example orders
 npm run dev         # FakeModel, free. Open /chat and /dashboard
-npm run demo:real   # RealModel. Costs money per message. Needs ANTHROPIC_API_KEY
+npm run demo:real   # RealModel. Costs money per message. Needs GEMINI_API_KEY
 ```
 
 The 3-minute walkthrough is in `docs/demo-script.md`.

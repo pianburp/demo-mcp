@@ -3,7 +3,7 @@
 **Sebelum mula**
 
 1. `npm run seed` (isi 5 pesanan contoh).
-2. `npm run dev` (FakeModel, percuma) atau `npm run demo:real` (Claude sebenar, kos duit).
+2. `npm run dev` (FakeModel, percuma) atau `npm run demo:real` (Gemini sebenar, kos duit).
 3. Buka dua tab sebelah-menyebelah: `localhost:3000/chat` dan `localhost:3000/dashboard`.
 
 Semua nama dan mesej dalam demo ini palsu.
