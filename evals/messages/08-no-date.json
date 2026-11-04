@@ -1,0 +1,20 @@
+{
+  "message": "tart nenas 5, bangkit 2",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Tart nenas",
+        "quantity": 5
+      },
+      {
+        "name": "Kuih bangkit",
+        "quantity": 2
+      }
+    ],
+    "pickupDate": null,
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Terima kasih! 5 bekas tart nenas dan 2 bekas kuih bangkit, jumlah RM165. Nak ambil bila ya?"
+  }
+}

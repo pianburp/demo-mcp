@@ -1,0 +1,20 @@
+{
+  "message": "Sis, 1 bekas dahlia + 1 bekas tart nenas. Tak payah rush, ambil bila2 minggu depan",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Biskut dahlia",
+        "quantity": 1
+      },
+      {
+        "name": "Tart nenas",
+        "quantity": 1
+      }
+    ],
+    "pickupDate": null,
+    "notes": "Tarikh ambil belum pasti: minggu depan.",
+    "confidence": "low",
+    "draftReply": "Baik sis! 1 bekas dahlia dan 1 bekas tart nenas, jumlah RM47. Sis nak ambil hari apa minggu depan?"
+  }
+}

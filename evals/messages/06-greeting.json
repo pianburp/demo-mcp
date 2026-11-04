@@ -1,0 +1,11 @@
+{
+  "message": "assalamualaikum",
+  "expected": {
+    "isOrder": false,
+    "items": [],
+    "pickupDate": null,
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Waalaikumsalam! Ada apa yang boleh kami bantu?"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "message": "nak 4 bekas biskut sujii, ambik 28hb",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Biskut suji",
+        "quantity": 4
+      }
+    ],
+    "pickupDate": "2026-11-28",
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Baik! 4 bekas biskut suji, jumlah RM80. Ambil 28 Nov ya."
+  }
+}

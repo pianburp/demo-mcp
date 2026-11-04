@@ -1,0 +1,16 @@
+{
+  "message": "2 bekas tart nenas, ambil 25hb",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Tart nenas",
+        "quantity": 2
+      }
+    ],
+    "pickupDate": "2026-11-25",
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Terima kasih! 2 bekas tart nenas, jumlah RM50. Ambil pada 25 Nov ya."
+  }
+}

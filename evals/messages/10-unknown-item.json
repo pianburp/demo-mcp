@@ -1,0 +1,11 @@
+{
+  "message": "nak yg macam tahun lepas tu, 3 bekas",
+  "expected": {
+    "isOrder": true,
+    "items": [],
+    "pickupDate": null,
+    "notes": "Pelanggan minta item sama macam tahun lepas, 3 bekas. Item tidak dinyatakan.",
+    "confidence": "low",
+    "draftReply": "Terima kasih! Boleh ingatkan kami kuih apa yang diambil tahun lepas?"
+  }
+}

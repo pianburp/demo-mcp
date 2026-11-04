@@ -1,0 +1,11 @@
+{
+  "message": "berapa harga?",
+  "expected": {
+    "isOrder": false,
+    "items": [],
+    "pickupDate": null,
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Harga kami: tart nenas RM25, kuih bangkit RM20, biskut suji RM20, semperit RM22, almond London RM28, dahlia RM22 (sebekas), kek lapis Sarawak RM45 sebiji. Nak order apa?"
+  }
+}

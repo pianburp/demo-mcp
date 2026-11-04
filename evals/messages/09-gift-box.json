@@ -1,0 +1,16 @@
+{
+  "message": "Nak 2 kek lapis sarawak, ambil 12 Dis. Tolong letak dalam kotak hadiah ya",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Kek lapis Sarawak",
+        "quantity": 2
+      }
+    ],
+    "pickupDate": "2026-12-12",
+    "notes": "Letak dalam kotak hadiah.",
+    "confidence": "high",
+    "draftReply": "Baik! 2 biji kek lapis Sarawak dalam kotak hadiah, jumlah RM90. Ambil 12 Dis ya."
+  }
+}

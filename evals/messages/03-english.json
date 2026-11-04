@@ -1,0 +1,20 @@
+{
+  "message": "Hello, can I get 2 tubs of almond london and 2 semperit? Pick up on 20 Nov please.",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Biskut almond London",
+        "quantity": 2
+      },
+      {
+        "name": "Semperit",
+        "quantity": 2
+      }
+    ],
+    "pickupDate": "2026-11-20",
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Hello! Noted: 2 tubs of almond London and 2 tubs of semperit, total RM100. Pick up on 20 Nov."
+  }
+}

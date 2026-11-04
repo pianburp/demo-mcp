@@ -1,0 +1,20 @@
+{
+  "message": "Hi, nak order 3 bekas kuih bangkit dan 1 kek lapis sarawak. Ambil sabtu ni boleh?",
+  "expected": {
+    "isOrder": true,
+    "items": [
+      {
+        "name": "Kuih bangkit",
+        "quantity": 3
+      },
+      {
+        "name": "Kek lapis Sarawak",
+        "quantity": 1
+      }
+    ],
+    "pickupDate": "2026-11-07",
+    "notes": "",
+    "confidence": "high",
+    "draftReply": "Hi! Boleh. 3 bekas kuih bangkit dan 1 biji kek lapis Sarawak, jumlah RM105. Ambil Sabtu ni, 7 Nov ya."
+  }
+}
