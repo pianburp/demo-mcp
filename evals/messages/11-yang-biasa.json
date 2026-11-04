@@ -1,0 +1,12 @@
+{
+  "message": "kak yang biasa tu satu ya",
+  "expected": {
+    "isOrder": true,
+    "items": [],
+    "pickupDate": null,
+    "notes": "Pelanggan minta \"yang biasa\". Item tidak dinyatakan.",
+    "confidence": "low",
+    "reason": "yang biasa",
+    "draftReply": "Yang biasa tu kuih apa ya kak?"
+  }
+}

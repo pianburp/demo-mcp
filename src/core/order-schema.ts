@@ -12,6 +12,8 @@ export const OrderSchema = z.object({
   pickupDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
   notes: z.string(),
   confidence: z.enum(["high", "low"]),
+  // The unclear words when confidence is low, e.g. "yang biasa". Shown to the owner.
+  reason: z.string().optional(),
   draftReply: z.string(),
 });
 

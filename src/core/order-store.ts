@@ -15,6 +15,9 @@ export type StoredOrder = {
   pickupDate: string | null;
   notes: string;
   checkThis: boolean;
+  // Why the owner must check it. Missing on rows saved before this field existed.
+  flag?: "not_order" | "unsure" | "ai_failed";
+  reason?: string; // the unclear words, from the AI
   draftReply: string;
   status: OrderStatus;
   sentAt: string | null; // ISO time, set only by approve

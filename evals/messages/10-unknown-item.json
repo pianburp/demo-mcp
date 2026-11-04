@@ -6,6 +6,7 @@
     "pickupDate": null,
     "notes": "Pelanggan minta item sama macam tahun lepas, 3 bekas. Item tidak dinyatakan.",
     "confidence": "low",
+    "reason": "yg macam tahun lepas tu",
     "draftReply": "Terima kasih! Boleh ingatkan kami kuih apa yang diambil tahun lepas?"
   }
 }

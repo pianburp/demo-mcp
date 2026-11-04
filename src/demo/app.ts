@@ -41,6 +41,8 @@ export function createApp(store: OrderStore, model: Model, now = () => new Date(
         pickupDate: order?.pickupDate ?? null,
         notes: order?.notes ?? "",
         checkThis: result.checkThis,
+        flag: !order ? "ai_failed" : !order.isOrder ? "not_order" : order.confidence === "low" ? "unsure" : undefined,
+        reason: order?.reason,
         draftReply: order?.draftReply ?? "",
       });
       log("message_read", {

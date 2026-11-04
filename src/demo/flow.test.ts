@@ -14,6 +14,7 @@ import { CUSTOMERS } from "./customers";
 
 const ORDER_MSG = "2 bekas tart nenas, ambil 25hb";
 const BAD_MSG = "nak order kuih";
+const UNSURE_MSG = "kak yang biasa tu satu ya";
 const DRAFT = "Terima kasih! 2 bekas tart nenas, RM50. Ambil 25 Nov ya.";
 
 const model = new FakeModel({
@@ -26,6 +27,15 @@ const model = new FakeModel({
     draftReply: DRAFT,
   }),
   [BAD_MSG]: "Sure! Here is the order: {",
+  [UNSURE_MSG]: JSON.stringify({
+    isOrder: true,
+    items: [],
+    pickupDate: null,
+    notes: "",
+    confidence: "low",
+    reason: "yang biasa",
+    draftReply: "Yang biasa tu kuih apa ya kak?",
+  }),
 });
 
 const post = (body: unknown) =>
@@ -100,8 +110,15 @@ describe("chat -> dashboard -> approve", () => {
   it("bad AI output -> Semak ini, empty draft, no reply", async () => {
     await send(BAD_MSG);
     const [row] = await orders();
-    expect(row).toMatchObject({ checkThis: true, draftReply: "", items: [], status: "pending" });
+    expect(row).toMatchObject({ checkThis: true, flag: "ai_failed", draftReply: "", items: [], status: "pending" });
     expect(await shopReplies()).toEqual([]);
+  });
+
+  it("unsure reading keeps the AI's reason for the owner", async () => {
+    await send(UNSURE_MSG);
+    const [row] = await orders();
+    expect(row).toMatchObject({ checkThis: true, flag: "unsure", reason: "yang biasa" });
+    expect(row.draftReply).not.toBe("");
   });
 
   // S4

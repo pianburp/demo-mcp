@@ -1,4 +1,4 @@
-// npm run seed: replaces data/orders.json with 5 fake example orders in different states.
+// npm run seed: replaces data/orders.json with 6 fake example orders in different states.
 import { rmSync } from "node:fs";
 import { JsonFileOrderStore, type NewOrder } from "../src/core/order-store";
 import { DATA_FILE } from "../src/demo/app";
@@ -51,6 +51,8 @@ const ORDERS: { order: NewOrder; approvedReply?: string }[] = [
       pickupDate: null,
       notes: "Tarikh ambil belum pasti: minggu depan.",
       checkThis: true,
+      flag: "unsure",
+      reason: "bila2 minggu depan",
       draftReply: "Baik sis! 1 bekas dahlia dan 1 bekas tart nenas, jumlah RM47. Sis nak ambil hari apa minggu depan?",
     }),
   },
@@ -62,18 +64,33 @@ const ORDERS: { order: NewOrder; approvedReply?: string }[] = [
       pickupDate: null,
       notes: "",
       checkThis: true,
+      flag: "not_order",
       draftReply:
         "Harga kami: tart nenas RM25, kuih bangkit RM20, biskut suji RM20, semperit RM22, almond London RM28, dahlia RM22 (sebekas), kek lapis Sarawak RM45 sebiji. Nak order apa?",
     }),
   },
   {
-    // Semak ini: the AI output failed the check, so no draft (S2).
+    // Semak ini: unsure, so the AI asks a short question back.
     order: row(c2, 5, {
       message: "kak yang biasa tu satu ya",
       items: [],
       pickupDate: null,
+      notes: 'Pelanggan minta "yang biasa". Item tidak dinyatakan.',
+      checkThis: true,
+      flag: "unsure",
+      reason: "yang biasa",
+      draftReply: "Yang biasa tu kuih apa ya kak?",
+    }),
+  },
+  {
+    // Semak ini: the AI output failed the check, so no draft (S2).
+    order: row(c3, 2, {
+      message: "nak order kuih",
+      items: [],
+      pickupDate: null,
       notes: "",
       checkThis: true,
+      flag: "ai_failed",
       draftReply: "",
     }),
   },
