@@ -2,9 +2,9 @@
 
 **Sebelum mula**
 
-1. `npm run seed` (isi 5 pesanan contoh).
-2. `npm run dev` (FakeModel, percuma) atau `npm run demo:real` (Gemini sebenar, kos duit).
-3. Buka dua tab sebelah-menyebelah: `localhost:3000/chat` dan `localhost:3000/dashboard`.
+1. `npm run seed` (isi 6 pesanan contoh).
+2. `npm run dev` (FakeModel, percuma) atau `npm run demo:real` (Gemini sebenar, kos duit). Terminal cetak alamat `Phone: http://…/chat?as=siti`.
+3. Laptop: buka `localhost:3000/dashboard`. Telefon (Wi-Fi sama): buka alamat `Phone:` tadi. Tiada telefon? Buka `localhost:3000/chat?as=siti` dalam tab kedua.
 
 Semua nama dan mesej dalam demo ini palsu.
 
@@ -14,17 +14,18 @@ Semua nama dan mesej dalam demo ini palsu.
 
 Tab **/dashboard**.
 
-> "Ini papan untuk tuan kedai. Setiap mesej WhatsApp yang masuk jadi satu baris. Lajur sama macam Google Sheet yang kedai guna sekarang."
+> "Ini papan untuk tuan kedai. Chat yang bersepah masuk, senarai pesanan yang kemas keluar. Satu baris untuk satu pesanan: masa, pelanggan, barang, tarikh ambil, jumlah RM. Klik baris untuk tengok mesej asal, apa yang AI faham, dan draf balasan di sebelah kanan."
 
-Tunjuk 3 jenis baris:
+Tunjuk:
 
-- **Dihantar**: pesanan yang dah diluluskan. Balasan dah sampai kepada pelanggan.
-- **Menunggu**: AI dah baca pesanan dan tulis draf balasan. Tunggu tuan kedai luluskan.
-- **Semak ini = Ya** (kuning): AI tak pasti, atau mesej bukan pesanan. Tuan kedai yang putuskan.
+- **Menunggu** (baris atas): AI dah baca pesanan dan tulis draf. Tunggu tuan kedai luluskan.
+- **Teks oren** dalam lajur Pesanan: AI minta tuan kedai semak. "Tak pasti: “yang biasa”" (AI tanya balik dalam draf), "Soalan, bukan pesanan", atau "AI gagal baca".
+- **Dihantar** (baris kelabu di bawah): dah diluluskan. Balasan dah sampai kepada pelanggan.
+- **Untuk dibuat** (bawah jadual): jumlah kuih ikut tarikh ambil. Ini yang tuan kedai perlu bakar.
 
 ## 2. Pelanggan hantar pesanan (45 saat)
 
-Tab **/chat**. Pilih pelanggan **Siti Contoh (palsu)**.
+Telefon (atau tab **/chat?as=siti**): chat Siti.
 
 Taip dan hantar:
 
@@ -36,13 +37,14 @@ Taip dan hantar:
 
 Tunjuk: mesej keluar dalam chat. **Belum ada balasan.**
 
-## 3. Baris baru muncul (30 saat)
+## 3. Pesanan baru muncul (30 saat)
 
-Tab **/dashboard**. Dalam beberapa saat baris baru muncul di atas:
+Tab **/dashboard**. Dalam beberapa saat baris baru muncul (Menunggu). Klik baris itu:
 
-- Barang: Tart nenas x2
-- Tarikh ambil: 2026-11-25
+- Pesanan: 2 × Tart nenas, RM 50
+- Ambil: Rab, 25 Nov
 - Draf balasan: siap dengan jumlah harga
+- **Untuk dibuat** dapat baris baru: Rabu, 25 Nov
 
 > "AI baca pesanan, kira jumlah, tukar '25hb' jadi tarikh betul, dan tulis draf. Tapi dia tak hantar apa-apa sendiri."
 
@@ -50,13 +52,13 @@ Tab **/dashboard**. Dalam beberapa saat baris baru muncul di atas:
 
 Dalam kotak **Draf balasan**, tambah sesuatu, contohnya: `Terima kasih Siti!`
 
-Tekan **Lulus**. Status bertukar jadi **Dihantar**.
+Tekan **Lulus & hantar**. Baris jadi kelabu, status **Dihantar**.
 
-> "Tuan kedai sentiasa pegang kawalan. Tiada balasan keluar tanpa butang Lulus."
+> "Tuan kedai sentiasa pegang kawalan. Tiada balasan keluar tanpa butang Lulus & hantar."
 
 ## 5. Balasan sampai (30 saat)
 
-Tab **/chat**. Balasan yang dah diubah muncul dalam chat Siti.
+Telefon. "sedang menaip…" keluar sekejap, kemudian balasan yang dah diubah muncul dalam chat Siti. Tanda ✓✓ jadi biru.
 
 > "Yang pelanggan nampak ialah ayat tuan kedai, bukan ayat asal AI."
 
