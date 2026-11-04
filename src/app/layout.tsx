@@ -1,15 +1,15 @@
 import "./globals.css";
 
-export const metadata = { title: "Demo pesanan WhatsApp" };
+export const metadata = { title: "Demo pesanan" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ms">
-      <body className="flex h-dvh flex-col bg-gray-100 text-gray-900">
-        <div role="note" className="shrink-0 bg-red-600 py-1 text-center text-sm font-bold tracking-wide text-white">
+      <body className="flex h-dvh flex-col bg-white font-sans text-ink antialiased">
+        <div role="note" className="flex h-7 shrink-0 items-center justify-center bg-[#3b4a54] text-xs text-white">
           DEMO — data palsu
         </div>
-        <div className="flex-1 overflow-auto">{children}</div>
+        <div className="min-h-0 flex-1 overflow-auto">{children}</div>
       </body>
     </html>
   );

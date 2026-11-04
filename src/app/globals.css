@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Dashboard: white and greys, one accent. */
+  --color-ink: #111b21;
+  --color-mute: #667781;
+  --color-line: #e9edef;
+  --color-pick: #f0f2f5;
+  --color-accent: #008069;
+  --color-amber: #b26b00; /* only for "Tak pasti" text */
+
+  /* Chat, copied from design/ref/wa-input.png. */
+  --color-wa-bg: #efeae2;
+  --color-wa-out: #d9fdd3;
+  --color-wa-icon: #54656f;
+  --color-wa-hint: #8696a0;
+  --color-wa-tick: #53bdeb;
+  --color-wa-green: #1daa61;
+}
+
+/* Bubble tail on the first bubble of a run, like a phone chat. */
+.tail-out,
+.tail-in {
+  position: relative;
+}
+.tail-out::before,
+.tail-in::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 13px;
+  background: inherit;
+}
+.tail-out::before {
+  right: -8px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.tail-in::before {
+  left: -8px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.arrive { animation: arrive 0.25s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .arrive { animation: none; }
+}
