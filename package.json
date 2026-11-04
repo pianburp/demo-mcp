@@ -6,7 +6,7 @@
     "dev": "next dev",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "eval": "tsx evals/run.ts",
+    "eval": "tsx --env-file-if-exists=.env.local evals/run.ts",
     "seed": "tsx scripts/seed.ts",
     "demo:real": "tsx scripts/demo-real.ts"
   },
