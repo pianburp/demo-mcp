@@ -3,10 +3,10 @@
 //   npm run eval -- --real  -> RealModel (costs money: ask Ahmad first, S6)
 import { readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { MENU } from "../src/core/menu.js";
-import { FakeModel, RealModel, type Model } from "../src/core/model.js";
-import type { Order } from "../src/core/order-schema.js";
-import { readOrder } from "../src/core/read-order.js";
+import { MENU } from "../src/core/menu";
+import { FakeModel, RealModel, type Model } from "../src/core/model";
+import type { Order } from "../src/core/order-schema";
+import { readOrder } from "../src/core/read-order";
 
 // The messages were written as if sent on this day ("Sabtu ni" = 2026-11-07).
 const TODAY = "2026-11-04";

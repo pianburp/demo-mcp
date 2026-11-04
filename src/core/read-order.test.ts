@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { MENU } from "./menu.js";
-import { FakeModel } from "./model.js";
-import { readOrder } from "./read-order.js";
+import { MENU } from "./menu";
+import { FakeModel } from "./model";
+import { readOrder } from "./read-order";
 
 const TODAY = "2026-11-04";
 const MSG = "2 bekas tart nenas, ambil 25hb";

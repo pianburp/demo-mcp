@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import type { MenuItem } from "./menu.js";
-import type { Model } from "./model.js";
-import { OrderSchema, type Order } from "./order-schema.js";
+import type { MenuItem } from "./menu";
+import type { Model } from "./model";
+import { OrderSchema, type Order } from "./order-schema";
 
 export type ReadOrderResult =
   | { ok: true; order: Order; checkThis: boolean }

@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
-import { OrderSchema } from "./order-schema.js";
+import { OrderSchema } from "./order-schema";
 
 export type ModelInput = { system: string; message: string };
 
