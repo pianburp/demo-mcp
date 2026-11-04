@@ -43,7 +43,7 @@ export default function ChatPage() {
   }
 
   return (
-    <main className="mx-auto flex h-screen max-w-md flex-col bg-[#efeae2]">
+    <main className="mx-auto flex h-full max-w-md flex-col bg-[#efeae2]">
       <header className="flex items-center gap-2 bg-[#075e54] p-3 text-white">
         <span className="font-semibold">Kedai Kuih Raya (demo)</span>
         <label className="ml-auto text-sm">

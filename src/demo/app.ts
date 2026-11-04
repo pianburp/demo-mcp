@@ -3,7 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
 import { MENU } from "../core/menu";
-import { FakeModel, type Model } from "../core/model";
+import { FakeModel, RealModel, type Model } from "../core/model";
 import { JsonFileOrderStore, type OrderStore } from "../core/order-store";
 import { readOrder } from "../core/read-order";
 import { CUSTOMERS } from "./customers";
@@ -85,10 +85,17 @@ function fakeModelFromEvals(): Model {
   return new FakeModel(Object.fromEntries(cases.map((c) => [c.message, JSON.stringify(c.expected)])));
 }
 
+export const DATA_FILE = join(process.cwd(), "data", "orders.json");
+
 let app: App | undefined;
 
+// MODEL=real is set only by `npm run demo:real` (costs money, S6).
 export function getApp(): App {
-  app ??= createApp(new JsonFileOrderStore(join(process.cwd(), "data", "orders.json")), fakeModelFromEvals());
+  if (!app) {
+    const real = process.env.MODEL === "real";
+    app = createApp(new JsonFileOrderStore(DATA_FILE), real ? new RealModel() : fakeModelFromEvals());
+    log("app_started", { model: real ? "real" : "fake" });
+  }
   return app;
 }
 

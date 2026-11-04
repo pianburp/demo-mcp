@@ -6,7 +6,9 @@
     "dev": "next dev",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "eval": "tsx evals/run.ts"
+    "eval": "tsx evals/run.ts",
+    "seed": "tsx scripts/seed.ts",
+    "demo:real": "tsx scripts/demo-real.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.4.0",
