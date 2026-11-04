@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "tsx scripts/phone-url.ts && next dev -H 0.0.0.0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "eval": "tsx --env-file-if-exists=.env.local evals/run.ts",
